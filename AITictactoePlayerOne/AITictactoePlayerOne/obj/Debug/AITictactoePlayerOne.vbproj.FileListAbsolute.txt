@@ -1,0 +1,12 @@
+C:\Network Sync\Current\dev\AITictactoePlayerOne\AITictactoePlayerOne\obj\Debug\AITictactoePlayerOne.vbprojResolveAssemblyReference.cache
+C:\Network Sync\Current\dev\AITictactoePlayerOne\AITictactoePlayerOne\obj\Debug\AITictactoePlayerOne.Resources.resources
+C:\Network Sync\Current\dev\AITictactoePlayerOne\AITictactoePlayerOne\obj\Debug\AITictactoePlayerOne.vbproj.GenerateResource.Cache
+C:\Network Sync\Current\dev\AITictactoePlayerOne\AITictactoePlayerOne\obj\Debug\AITictactoePlayerOne.vbproj.CoreCompileInputs.cache
+C:\Network Sync\Current\dev\AITictactoePlayerOne\AITictactoePlayerOne\bin\Debug\AITictactoePlayerOne.exe.config
+C:\Network Sync\Current\dev\AITictactoePlayerOne\AITictactoePlayerOne\bin\Debug\AITictactoePlayerOne.exe
+C:\Network Sync\Current\dev\AITictactoePlayerOne\AITictactoePlayerOne\bin\Debug\AITictactoePlayerOne.pdb
+C:\Network Sync\Current\dev\AITictactoePlayerOne\AITictactoePlayerOne\bin\Debug\AITictactoePlayerOne.xml
+C:\Network Sync\Current\dev\AITictactoePlayerOne\AITictactoePlayerOne\bin\Debug\Newtonsoft.Json.dll
+C:\Network Sync\Current\dev\AITictactoePlayerOne\AITictactoePlayerOne\obj\Debug\AITictactoePlayerOne.exe
+C:\Network Sync\Current\dev\AITictactoePlayerOne\AITictactoePlayerOne\obj\Debug\AITictactoePlayerOne.xml
+C:\Network Sync\Current\dev\AITictactoePlayerOne\AITictactoePlayerOne\obj\Debug\AITictactoePlayerOne.pdb

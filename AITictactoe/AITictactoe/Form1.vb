@@ -3,6 +3,7 @@ Imports System.Net
 
 Public Class Form1
 
+    Private WithEvents cleartimer As New Timer()
     Private Startx As Integer = 50
     Private Starty As Integer = 50
     Private xSize As Integer = 3
@@ -14,6 +15,8 @@ Public Class Form1
     Private weblistener As System.Net.HttpListener = Nothing
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
+        cleartimer.Interval = 1000
+        cleartimer.Stop()
         Dim t As New Threading.Thread(AddressOf StartWebServer)
         t.Start()
     End Sub
@@ -43,9 +46,17 @@ Public Class Form1
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        SetButton(New GameMove(1, 3, 1), True)
-        SetButton(New GameMove(2, 2, 1), True)
-        SetButton(New GameMove(3, 1, 1), True)
+        'SetButton(New GameMove(1, 3, 1), True)
+        'SetButton(New GameMove(2, 2, 1), True)
+        'SetButton(New GameMove(3, 1, 1), True)
+        ClearGame()
+    End Sub
+    Private Sub ClearGame()
+        CurrentMoves.Clear()
+        Me.Refresh()
+        CurrentPlayerTurn = 1
+        CurrentWinner = 0
+        Label1.Visible = False
     End Sub
     Private Sub StartWebServer()
         If Not System.Net.HttpListener.IsSupported Then
@@ -146,8 +157,31 @@ Public Class Form1
 
         CurrentWinner = CheckforWin()
         If CurrentWinner > 0 Then
+            SetWinLabel()
+        End If
+        If CurrentMoves.Count >= 9 AndAlso CurrentWinner = 0 Then
+            CurrentWinner = -1
+            SetWinLabelStalemate()
+        End If
+    End Sub
+    Private Delegate Sub SetWinLabelDelegate()
+    Private Sub SetWinLabel()
+        If Me.InvokeRequired Then
+            Me.Invoke(New SetWinLabelDelegate(AddressOf SetWinLabel), New Object() {})
+        Else
             Label1.Text = "Player " & CurrentWinner & " Wins!!!"
             Label1.Visible = True
+            cleartimer.Start()
+        End If
+    End Sub
+    Private Delegate Sub SetWinLabelStalemateDelegate()
+    Private Sub SetWinLabelStalemate()
+        If Me.InvokeRequired Then
+            Me.Invoke(New SetWinLabelStalemateDelegate(AddressOf SetWinLabelStalemate), New Object() {})
+        Else
+            Label1.Text = "Draw!!!"
+            Label1.Visible = True
+            cleartimer.Start()
         End If
     End Sub
     Private Function CheckforWin() As Integer
@@ -289,5 +323,10 @@ Public Class Form1
         If weblistener IsNot Nothing Then
             weblistener.Stop()
         End If
+    End Sub
+
+    Private Sub cleartimer_Tick(sender As Object, e As EventArgs) Handles cleartimer.Tick
+        cleartimer.Stop()
+        ClearGame()
     End Sub
 End Class

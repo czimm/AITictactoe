@@ -12,3 +12,5 @@ Response: {"PlayerTurn":2,"PlayerWin":0,"CurrentMoves":[{"x":2,"y":3,"player":1}
 Request: http://localhost:8000/gamemove
 
 Request Body: {"x":3,"y":3,"player":2}
+
+This quick and dirty code BUGS and inefficient code everywhere

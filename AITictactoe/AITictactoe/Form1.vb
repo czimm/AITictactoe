@@ -12,6 +12,9 @@ Public Class Form1
     Private CurrentWinner As Integer = 0
     Private CurrentMoves As New List(Of GameMove)
     Private IsListening As Boolean = True
+    Private Player1Wins As Integer = 0
+    Private Player2Wins As Integer = 0
+    Private Draws As Integer = 0
     Private weblistener As System.Net.HttpListener = Nothing
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
@@ -50,6 +53,11 @@ Public Class Form1
         'SetButton(New GameMove(2, 2, 1), True)
         'SetButton(New GameMove(3, 1, 1), True)
         ClearGame()
+        Player1Wins = 0
+        Player2Wins = 0
+        Draws = 0
+        Label2.Text = "Player1 Wins: " & Player1Wins & "     Player2 Wins: " & Player2Wins & "      Draws: " & Draws
+
     End Sub
     Private Sub ClearGame()
         CurrentMoves.Clear()
@@ -155,13 +163,15 @@ Public Class Form1
         Dim y As Integer = gm.y - 1
         g.FillEllipse(Pen, New System.Drawing.Rectangle(Startx + (x * 40) + 1, Starty + (y * 40) + 1, 37, 37))
 
-        CurrentWinner = CheckforWin()
-        If CurrentWinner > 0 Then
-            SetWinLabel()
-        End If
-        If CurrentMoves.Count >= 9 AndAlso CurrentWinner = 0 Then
-            CurrentWinner = -1
-            SetWinLabelStalemate()
+        If AddToMoves Then
+            CurrentWinner = CheckforWin()
+            If CurrentWinner > 0 Then
+                SetWinLabel()
+            End If
+            If CurrentMoves.Count >= 9 AndAlso CurrentWinner = 0 Then
+                CurrentWinner = -1
+                SetWinLabelStalemate()
+            End If
         End If
     End Sub
     Private Delegate Sub SetWinLabelDelegate()
@@ -169,8 +179,14 @@ Public Class Form1
         If Me.InvokeRequired Then
             Me.Invoke(New SetWinLabelDelegate(AddressOf SetWinLabel), New Object() {})
         Else
+            If CurrentWinner = 1 Then
+                Player1Wins += 1
+            ElseIf CurrentWinner = 2 Then
+                Player2Wins += 1
+            End If
             Label1.Text = "Player " & CurrentWinner & " Wins!!!"
             Label1.Visible = True
+            Label2.Text = "Player1 Wins: " & Player1Wins & "     Player2 Wins: " & Player2Wins & "      Draws: " & Draws
             cleartimer.Start()
         End If
     End Sub
@@ -179,8 +195,10 @@ Public Class Form1
         If Me.InvokeRequired Then
             Me.Invoke(New SetWinLabelStalemateDelegate(AddressOf SetWinLabelStalemate), New Object() {})
         Else
+            Draws += 1
             Label1.Text = "Draw!!!"
             Label1.Visible = True
+            Label2.Text = "Player1 Wins: " & Player1Wins & "     Player2 Wins: " & Player2Wins & "      Draws: " & Draws
             cleartimer.Start()
         End If
     End Sub

@@ -1,2 +1,2 @@
-# AITictactoe
-Json Tictactoe Game for AI Testing
+# AITicTacToe
+JSON Tictactoe Game for AI Testing

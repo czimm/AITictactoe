@@ -24,3 +24,15 @@ C:\Network Sync\Current\dev\AITictactoe\AITictactoe\AITictactoe\obj\Debug\AITict
 C:\Network Sync\Current\dev\AITictactoe\AITictactoe\AITictactoe\obj\Debug\AITictactoe.exe
 C:\Network Sync\Current\dev\AITictactoe\AITictactoe\AITictactoe\obj\Debug\AITictactoe.xml
 C:\Network Sync\Current\dev\AITictactoe\AITictactoe\AITictactoe\obj\Debug\AITictactoe.pdb
+C:\dev\AITictactoe\AITictactoe\AITictactoe\bin\Debug\AITictactoe.exe.config
+C:\dev\AITictactoe\AITictactoe\AITictactoe\obj\Debug\AITictactoe.exe
+C:\dev\AITictactoe\AITictactoe\AITictactoe\obj\Debug\AITictactoe.xml
+C:\dev\AITictactoe\AITictactoe\AITictactoe\obj\Debug\AITictactoe.pdb
+C:\dev\AITictactoe\AITictactoe\AITictactoe\bin\Debug\AITictactoe.exe
+C:\dev\AITictactoe\AITictactoe\AITictactoe\bin\Debug\AITictactoe.pdb
+C:\dev\AITictactoe\AITictactoe\AITictactoe\bin\Debug\AITictactoe.xml
+C:\dev\AITictactoe\AITictactoe\AITictactoe\bin\Debug\Newtonsoft.Json.dll
+C:\dev\AITictactoe\AITictactoe\AITictactoe\obj\Debug\AITictactoe.vbprojResolveAssemblyReference.cache
+C:\dev\AITictactoe\AITictactoe\AITictactoe\obj\Debug\AITictactoe.Form1.resources
+C:\dev\AITictactoe\AITictactoe\AITictactoe\obj\Debug\AITictactoe.Resources.resources
+C:\dev\AITictactoe\AITictactoe\AITictactoe\obj\Debug\AITictactoe.vbproj.GenerateResource.Cache

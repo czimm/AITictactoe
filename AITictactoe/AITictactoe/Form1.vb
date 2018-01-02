@@ -8,6 +8,7 @@ Public Class Form1
     Private Starty As Integer = 50
     Private xSize As Integer = 3
     Private ySize As Integer = 3
+    Private startplayer As Integer = 1
     Private CurrentPlayerTurn As Integer = 1
     Private CurrentWinner As Integer = 0
     Private CurrentMoves As New List(Of GameMove)
@@ -62,7 +63,13 @@ Public Class Form1
     Private Sub ClearGame()
         CurrentMoves.Clear()
         Me.Refresh()
-        CurrentPlayerTurn = 1
+        If startplayer = 1 Then
+            startplayer = 2
+        ElseIf startplayer = 2 Then
+            startplayer = 1
+        End If
+        CurrentPlayerTurn = startplayer
+
         CurrentWinner = 0
         Label1.Visible = False
     End Sub

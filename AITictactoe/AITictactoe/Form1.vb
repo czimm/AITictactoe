@@ -104,8 +104,14 @@ Public Class Form1
                     Dim responseString As String = "Request Error"
                     If context.Request.Url.Segments(1).Replace("/", "") = "getgamestate" Then
                         'Return Game State
+
                         Dim state As New GameState()
-                        state.CurrentMoves = CurrentMoves
+                        Dim moves As New List(Of GameMove)
+                        For Each dtl As GameMove In CurrentMoves
+                            moves.Add(New GameMove(dtl.x, dtl.y, dtl.player))
+                        Next
+                        'do get clone for moves
+                        state.CurrentMoves = moves
                         state.PlayerTurn = CurrentPlayerTurn
                         state.PlayerWin = CurrentWinner
                         responseString = Newtonsoft.Json.JsonConvert.SerializeObject(state, Newtonsoft.Json.Formatting.None)
